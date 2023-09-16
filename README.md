@@ -19,7 +19,7 @@ Technologies Used
 
 User Stories and Features
 -----------
-### Filter Events by City  
+### Feature 1: Filter Events by City  
 As a user I want to be able to filter events by the city, so that I can see only events in my location.
 
 - _Scenario 1_  
