@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/no-render-in-setup */
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import CitySearch from "../components/CitySearch";

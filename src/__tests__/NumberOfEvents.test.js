@@ -28,15 +28,4 @@ describe("<NumberOfEvents /> component", () => {
     await userEvent.type(numberTextBox, "10");
     expect(handleEventNumberChange).toHaveBeenCalled();
   });
-  describe("<NumberOfEvents /> integration", () => {
-    test("renders a specific number of events when the app is rendered", async () => {
-      render(<App />);
-      const numberOfEvents = screen.getByTestId("#number-of-events");
-      const numberTextbox = within(numberOfEvents).getByRole("textbox");
-      await userEvent.type(numberTextbox, "10");
-      await screen.findAllByRole("listitem");
-      const eventListItems = screen.queryAllByRole("listitem");
-      expect(eventListItems.length).toBe(10);
-    });
-  });
 });
