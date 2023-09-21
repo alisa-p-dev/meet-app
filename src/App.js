@@ -1,10 +1,9 @@
-import CitySearch from "./components/CitySearch";
 import EventList from "./components/EventList";
+import CitySearch from "./components/CitySearch";
 import NumberOfEvents from "./components/NumberOfEvents";
-import { useEffect, useState } from "react";
-import { extractLocations, getEvents } from "./api";
-
 import "./App.css";
+import { useState, useEffect } from "react";
+import { extractLocations, getEvents } from "./api";
 
 const App = () => {
   const [allLocations, setAllLocations] = useState([]);
@@ -34,7 +33,6 @@ const App = () => {
         setCurrentCity={setCurrentCity}
       ></CitySearch>
       <EventList events={events}></EventList>
-      <EventList events={events} />
     </div>
   );
 };
