@@ -6,24 +6,24 @@ describe("<NumberOfEvents /> component", () => {
   let NumberOfEventsComponent;
 
   beforeEach(() => {
-    const NumberOfEventsComponent = render(
+    NumberOfEventsComponent = render(
       <NumberOfEvents setCurrentNOE={() => {}} />
     );
   });
 
   test("renders a text box", () => {
-    const numberTextBox = screen.queryByRole("textbox");
+    const numberTextBox = screen.getByRole("textbox");
     expect(numberTextBox).toBeInTheDocument();
     expect(numberTextBox).toHaveClass("textbox");
   });
 
   test("default number of events is 32", () => {
-    const input = NumberOfEventsComponent.queryByRole("textbox");
+    const input = NumberOfEventsComponent.getByRole("textbox");
     expect(input).toHaveValue("32");
   });
 
   test("updates the event number when the user types a new value", async () => {
-    const input = NumberOfEventsComponent.queryByRole("textbox");
+    const input = NumberOfEventsComponent.getByRole("textbox");
     await userEvent.type(input, "{backspace}{backspace}10");
     expect(input).toHaveValue("10");
   });
