@@ -1,37 +1,16 @@
-import React from "react";
-
-const NumberOfEvents = ({
-  eventNumber,
-  onEventNumberChange,
-  setErrorAlert,
-}) => {
-  const handleInputChanged = (value) => {
-    const numberValue = parseInt(value); // Convert the input value to a number
-    if (!isNaN(numberValue)) {
-      onEventNumberChange(numberValue);
-    } else {
-      onEventNumberChange(32);
-    }
-    let errorText;
-    if (isNaN(value) || value <= 0) {
-      errorText = "You must enter a positive number to continue.";
-    } else {
-      errorText = "";
-    }
-    setErrorAlert(errorText);
+const NumberOfEvents = ({ setCurrentNOE }) => {
+  const handleInputChanged = (event) => {
+    const value = event.target.value;
+    setCurrentNOE(value);
   };
 
   return (
     <div id="number-of-events">
       <input
-        onFocus={() => {
-          onEventNumberChange("");
-        }}
         type="text"
         className="textbox"
-        placeholder="Enter a number"
-        value={eventNumber}
-        onChange={(e) => handleInputChanged(e.target.value)}
+        defaultValue="32"
+        onChange={handleInputChanged}
       />
     </div>
   );
