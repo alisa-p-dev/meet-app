@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-node-access */
-import { render, within } from "@testing-library/react";
 import App from "../App";
+import { render, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { getEvents } from "../api";
 
@@ -22,6 +22,8 @@ describe("<App /> component", () => {
     expect(AppDOM.querySelector("#number-of-events")).toBeInTheDocument();
   });
 });
+
+//Integration tests
 describe("<App /> integration", () => {
   test("renders a list of events matching the city selected by the user", async () => {
     const user = userEvent.setup();
@@ -50,5 +52,23 @@ describe("<App /> integration", () => {
     allRenderedEventItems.forEach((event) => {
       expect(event.textContent).toContain("Berlin, Germany");
     });
+  });
+
+  test("selected number of events by the user are rendered", async () => {
+    const AppComponent = render(<App />);
+    const AppDOM = AppComponent.container.firstChild;
+
+    const NumberOfEventsDOM = AppDOM.querySelector("#number-of-events");
+    const NumberOfEventsInput =
+      within(NumberOfEventsDOM).queryByRole("textbox");
+
+    // Simulate user input to change the number of events
+    await userEvent.clear(NumberOfEventsInput); // Clear the input field
+    await userEvent.type(NumberOfEventsInput, "10"); // Type "10" to set the number of events
+
+    const EventListDOM = AppDOM.querySelector("#event-list");
+    const allRenderedEventItems =
+      within(EventListDOM).queryAllByRole("listitem");
+    expect(allRenderedEventItems.length).toEqual(10);
   });
 });
