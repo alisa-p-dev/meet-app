@@ -34,7 +34,6 @@ const App = () => {
         setCurrentCity={setCurrentCity}
       ></CitySearch>
       <EventList events={events}></EventList>
-      <EventList events={events} />
     </div>
   );
 };
