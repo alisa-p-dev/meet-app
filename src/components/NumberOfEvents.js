@@ -11,8 +11,10 @@ const NumberOfEvents = ({ setCurrentNOE }) => {
         className="textbox"
         defaultValue="32"
         onChange={handleInputChanged}
+        data-testid="numberOfEventsInput"
       />
     </div>
   );
 };
+
 export default NumberOfEvents;
