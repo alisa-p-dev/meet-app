@@ -8,9 +8,10 @@ import { InfoAlert } from "./components/Alert";
 import "./App.css";
 
 const App = () => {
-  const [allLocations, setAllLocations] = useState([]);
-  const [currentNOE, setCurrentNOE] = useState(32);
   const [events, setEvents] = useState([]);
+  const [allLocations, setAllLocations] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [currentNOE, setCurrentNOE] = useState(32);
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
 

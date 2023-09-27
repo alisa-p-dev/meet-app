@@ -16,7 +16,6 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
           return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
         })
       : [];
-
     setQuery(value);
     setSuggestions(filteredLocations);
 
