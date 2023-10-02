@@ -19,19 +19,10 @@ const App = () => {
 
   const fetchData = async () => {
     const allEvents = await getEvents();
-    let filteredEvents;
-    // currentCity === "See all cities"
-    //   ? allEvents
-    //   : allEvents.filter((event) => event.location === currentCity);
-    if (currentCity === "See all cities") {
-      // If the current city is "See all cities," don't filter any events
-      filteredEvents = allEvents;
-    } else {
-      // Filter out events from the "Excluded City"
-      filteredEvents = allEvents.filter(
-        (event) => event.location !== "Moscow, Russia"
-      );
-    }
+    const filteredEvents =
+      currentCity === "See all cities"
+        ? allEvents
+        : allEvents.filter((event) => event.location === currentCity);
     setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(extractLocations(allEvents));
   };
