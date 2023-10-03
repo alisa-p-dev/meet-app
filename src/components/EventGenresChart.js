@@ -35,10 +35,10 @@ const EventGenresChart = ({ events }) => {
         <Pie
           data={data}
           cx={200}
-          cy={200}
+          cy={150}
           labelLine={false}
           label={true}
-          outerRadius={80}
+          outerRadius={120}
           fill="#8884d8"
           dataKey="value"
         >
