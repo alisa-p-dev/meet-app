@@ -15,7 +15,7 @@ const CityEventsChart = ({ allLocations, events }) => {
   useEffect(() => {
     setData(getData());
   }, [data]);
-
+  
   const getData = () => {
     const data = allLocations.map((location) => {
       const count = events.filter(

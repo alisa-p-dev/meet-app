@@ -33,8 +33,8 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
     const value = event.target.textContent;
     setQuery(value);
     setShowSuggestions(false);
+    setInfoAlert(""); // Clear infoAlert when a city is selected
     setCurrentCity(value);
-    setInfoAlert("");
   };
 
   return (
