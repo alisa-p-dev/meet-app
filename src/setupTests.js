@@ -18,19 +18,19 @@ console.error = (...args) => {
   jest.setTimeout(50000);
 };
 
-const { ResizeObserver } = window;
+// const { ResizeObserver } = window;
 
-beforeEach(() => {
-  //@ts-ignore
-  delete window.ResizeObserver;
-  window.ResizeObserver = jest.fn().mockImplementation(() => ({
-    observe: jest.fn(),
-    unobserve: jest.fn(),
-    disconnect: jest.fn(),
-  }));
-});
+// beforeEach(() => {
+//   //@ts-ignore
+//   delete window.ResizeObserver;
+//   window.ResizeObserver = jest.fn().mockImplementation(() => ({
+//     observe: jest.fn(),
+//     unobserve: jest.fn(),
+//     disconnect: jest.fn(),
+//   }));
+// });
 
-afterEach(() => {
-  window.ResizeObserver = ResizeObserver;
-  jest.restoreAllMocks();
-});
+// afterEach(() => {
+//   window.ResizeObserver = ResizeObserver;
+//   jest.restoreAllMocks();
+// });

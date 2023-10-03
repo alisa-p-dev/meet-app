@@ -2,6 +2,7 @@ import EventList from "./components/EventList";
 import CitySearch from "./components/CitySearch";
 import NumberOfEvents from "./components/NumberOfEvents";
 import CityEventsChart from "./components/CityEventsChart";
+import EventGenresChart from "./components/EventGenresChart";
 import { useEffect, useState } from "react";
 import { extractLocations, getEvents } from "./api";
 import { ErrorAlert, InfoAlert, WarningAlert } from "./components/Alert";
@@ -38,6 +39,7 @@ const App = () => {
       );
     }
     fetchData();
+    // eslint-disable-next-line
   }, [currentCity, currentNOE]);
 
   return (
@@ -56,7 +58,10 @@ const App = () => {
         setCurrentCity={setCurrentCity}
         setInfoAlert={setInfoAlert}
       ></CitySearch>
-      <CityEventsChart allLocations={allLocations} events={events} />
+      <div className="charts-container">
+        <CityEventsChart allLocations={allLocations} events={events} />
+        <EventGenresChart events={events} />
+      </div>
       <EventList events={events}></EventList>
     </div>
   );

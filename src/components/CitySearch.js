@@ -7,6 +7,7 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
 
   useEffect(() => {
     setSuggestions(allLocations);
+    // eslint-disable-next-line
   }, [`${allLocations}`]);
 
   const handleInputChanged = (event) => {
