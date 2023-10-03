@@ -1,10 +1,19 @@
 import Event from "./Event";
+import { useState } from "react";
 
 const EventList = ({ events }) => {
+  const [colorIndex, setColorIndex] = useState(0);
+
   return (
     <ul id="event-list">
       {events
-        ? events.map((event) => <Event key={event.id} event={event} />)
+        ? events.map((event, index) => (
+            <Event
+              key={event.id}
+              event={event}
+              colorIndex={colorIndex + index}
+            />
+          ))
         : null}
     </ul>
   );

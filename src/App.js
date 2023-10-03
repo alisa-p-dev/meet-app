@@ -49,15 +49,16 @@ const App = () => {
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
         {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
       </div>
-      <NumberOfEvents
-        setCurrentNOE={setCurrentNOE}
-        setErrorAlert={setErrorAlert}
-      ></NumberOfEvents>
+      <h1>Meet (Events) App</h1>
       <CitySearch
         allLocations={allLocations}
         setCurrentCity={setCurrentCity}
         setInfoAlert={setInfoAlert}
       ></CitySearch>
+      <NumberOfEvents
+        setCurrentNOE={setCurrentNOE}
+        setErrorAlert={setErrorAlert}
+      ></NumberOfEvents>
       <div className="charts-container">
         <CityEventsChart allLocations={allLocations} events={events} />
         <EventGenresChart events={events} />
