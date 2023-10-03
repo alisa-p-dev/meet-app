@@ -2,7 +2,7 @@ import EventList from "./components/EventList";
 import CitySearch from "./components/CitySearch";
 import NumberOfEvents from "./components/NumberOfEvents";
 import CityEventsChart from "./components/CityEventsChart";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { extractLocations, getEvents } from "./api";
 import { ErrorAlert, InfoAlert, WarningAlert } from "./components/Alert";
 import "./App.css";

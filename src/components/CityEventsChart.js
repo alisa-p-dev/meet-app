@@ -12,6 +12,10 @@ import {
 const CityEventsChart = ({ allLocations, events }) => {
   const [data, setData] = useState([]);
 
+  useEffect(() => {
+    setData(getData());
+  }, [data]);
+  
   const getData = () => {
     const data = allLocations.map((location) => {
       const count = events.filter(
@@ -22,10 +26,6 @@ const CityEventsChart = ({ allLocations, events }) => {
     });
     return data;
   };
-
-  useEffect(() => {
-    setData(getData());
-  }, [`${events}`]);
 
   return (
     <ResponsiveContainer width="99%" height={400}>
@@ -45,13 +45,12 @@ const CityEventsChart = ({ allLocations, events }) => {
           angle={60}
           interval={0}
           tick={{ dx: 20, dy: 40, fontSize: 14 }}
-          stroke="var(--color-text)"
         />
         <YAxis
-          stroke="var(--color-text)"
           type="number"
           dataKey="count"
-          name="number of events"
+          name="Number of events"
+          allowDecimals={false}
         />
         <Tooltip cursor={{ strokeDasharray: "3 3" }} />
         <Scatter name="A school" data={data} fill="#8884d8" />
