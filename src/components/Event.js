@@ -8,8 +8,7 @@ const Event = ({ event, colorIndex }) => {
   // Format the date and time using date-fns
   const formattedStartDate = format(startDate, "dd/MM/yyyy,  HH:mm");
 
-  //const colors = ["#2364aa", "#3da5d9", "#73bfb8", "#fec601", "#ea7317"];
-  const colors = ["#34B5EE", "#27B08A", "#557D73", "#FA8F42", "#775BFB"];
+  const colors = ["#34B5EE", "#27B08A", "#FA8F42", "#775BFB", "#E9B824"];
   return (
     <li
       className="event"

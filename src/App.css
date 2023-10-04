@@ -13,13 +13,22 @@
     font-family: 'Lato', sans-serif;
   }
 
+  .app-header {
+    margin: 0;
+    background-image: url('/public/scattered-forcefields\ \(1\).svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 50px;
+  }
+
   ul {
     padding: 0;
     list-style: none;
   }
 
   p {
-    margin: 5px 0;
+    margin: 10px 0;
   }
 
   input[type="text"],
@@ -138,22 +147,13 @@
   }
 
   @media (max-width: 768px) {
+
+
     .charts-container {
       grid-template-columns: 1fr;
     }
 
     #event-list {
       grid-template-columns: 1fr;
-    }
-  }
-
-
-  @media (max-width: 1025px) {
-    .charts-container {
-      grid-template-columns: 1fr;
-    }
-
-    #event-list {
-      grid-template-columns: 1fr 1fr;
     }
   }
