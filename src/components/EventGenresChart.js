@@ -8,6 +8,36 @@ import {
   Cell,
 } from "recharts";
 
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  percent,
+  index,
+}) => {
+  if (percent === 0) {
+    // Don't render the label if the percentage is zero
+    return null;
+  }
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+  return (
+    <text
+      x={x}
+      y={y}
+      fill="white"
+      textAnchor={x > cx ? "start" : "end"}
+      dominantBaseline="central"
+    >
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
 const EventGenresChart = ({ events }) => {
   const [data, setData] = useState([]);
 
@@ -34,10 +64,10 @@ const EventGenresChart = ({ events }) => {
         <Legend verticalAlign="bottom" />
         <Pie
           data={data}
-          cx={200}
-          cy={155}
+          cx="50%"
+          cy="50%"
           labelLine={false}
-          label={true}
+          label={renderCustomizedLabel}
           outerRadius={120}
           fill="#8884d8"
           dataKey="value"
